@@ -7,11 +7,9 @@ app.secret_key = "secret123"
 
 GOOGLE_SHEET_WEBHOOK_URL = os.environ.get("GOOGLE_SHEET_WEBHOOK_URL")
 
-
 @app.route("/")
 def home():
     return render_template("index.html")
-
 
 @app.route("/register", methods=["POST"])
 def register():
@@ -44,7 +42,6 @@ def register():
         flash(f"Error saving registration: {str(e)}")
 
     return redirect(url_for("home"))
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
