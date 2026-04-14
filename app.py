@@ -34,6 +34,9 @@ def register():
     }
 
     try:
+        if not GOOGLE_SHEET_WEBHOOK_URL:
+            raise ValueError("GOOGLE_SHEET_WEBHOOK_URL is not set in environment variables")
+
         response = requests.post(GOOGLE_SHEET_WEBHOOK_URL, json=data, timeout=10)
         response.raise_for_status()
         flash("Registration successful and data saved.")
