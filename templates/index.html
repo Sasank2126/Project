@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: rgb(210, 224, 235);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        .parent {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            width: 500px;
+            max-width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
+            border: 2px solid #0f4c3a;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .form-field {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-field label {
+            width: 80%;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .form-field input[type="text"],
+        .form-field input[type="email"],
+        .form-field input[type="tel"],
+        .form-field input[type="number"],
+        .form-field input[type="file"],
+        .form-field textarea,
+        .form-field select {
+            padding: 12px;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* ✅ Updated for 2 per row */
+        .radio-checkbox-group {
+            width: 80%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px 20px;
+        }
+
+        .radio-checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            font-weight: normal !important;
+            color: #555;
+        }
+
+        .radio-checkbox-item input {
+            margin: 0;
+
+        }
+
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            width: 80%;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form class="parent" id="registrationForm" action="/register" method="post">
+        <h1>Registration Form</h1>
+
+        <div class="form-field">
+            <label for="name">Enter your Name</label>
+            <input type="text" placeholder="Enter your name" id="name" name="name" required />
+        </div>
+
+        <div class="form-field">
+            <label for="email">Enter your Email</label>
+            <input type="email" placeholder="Enter your email" id="email" name="email" required />
+        </div>
+
+        <div class="form-field">
+            <label for="number">Enter your phone number</label>
+            <input type="tel" placeholder="Enter your phone number" id="number" name="number" required />
+        </div>
+
+        <div class="form-field">
+            <label>Select your gender</label>
+            <div class="radio-checkbox-group" style="display:flex; flex-wrap:wrap; gap:15px;">
+                <div class="radio-checkbox-item">
+                    <input type="radio" id="gmale" name="gender" value="Male" required />
+                    <label for="gmale" style="width: auto; margin: 0; font-weight: normal;">Male</label>
+                </div>
+                <div class="radio-checkbox-item">
+                    <input type="radio" id="gfemale" name="gender" value="Female" required />
+                    <label for="gfemale" style="width: auto; margin: 0; font-weight: normal;">Female</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <label>Select your blood group</label>
+            <div class="radio-checkbox-group">
+                <div class="radio-checkbox-item">
+                    <input type="radio" id="o+" name="bloodGroup" value="O+" required />
+                    <label for="o+">O+</label>
+                </div>
+                <div class="radio-checkbox-item">
+                    <input type="radio" id="o-" name="bloodGroup" value="O-" required />
+                    <label for="o-">O-</label>
+                </div>
+                <div class="radio-checkbox-item">
+                    <input type="radio" id="a+" name="bloodGroup" value="A+" required />
+                    <label for="a+">A+</label>
+                </div>
+                <div class="radio-checkbox-item">
+                    <input type="radio" id="a-" name="bloodGroup" value="A-" required />
+                    <label for="a-">A-</label>
+                </div>
+                <div class="radio-checkbox-item">
+                    <input type="radio" id="b+" name="bloodGroup" value="B+" required />
+                    <label for="b+">B+</label>
+                </div>
+                <div class="radio-checkbox-item">
+                    <input type="radio" id="b-" name="bloodGroup" value="B-" required />
+                    <label for="b-">B-</label>
+                </div>
+                <div class="radio-checkbox-item">
+                    <input type="radio" id="ab+" name="bloodGroup" value="AB+" required />
+                    <label for="ab+">AB+</label>
+                </div>
+                <div class="radio-checkbox-item">
+                    <input type="radio" id="ab-" name="bloodGroup" value="AB-" required />
+                    <label for="ab-">AB-</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <label for="age">Enter your Age</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age" min="1" max="120" required />
+        </div>
+
+        <div class="form-field">
+            <label for="location">Enter your Location</label>
+            <input type="text" placeholder="Enter your location" id="location" name="location" required />
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+
+</html>
